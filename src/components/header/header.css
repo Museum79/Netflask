@@ -1,0 +1,22 @@
+.header{
+    background-color: black;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.navLink{
+    text-decoration: none;
+    color: white;
+}
+.navLink:hover{
+    text-decoration: none;
+    color: #E21221;
+}
+
+.inputSearch{
+    width: 60%;
+    margin-right: 0px;
+}
+
+
+
