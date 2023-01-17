@@ -10,19 +10,19 @@ import {
 
 const items = [
   {
-    src:'https://picsum.photos/id/123/1300/350',
+    src:'/avatar.png',
     altText: 'Slide 1',
     caption: 'Slide 1',
     key: 1,
   },
   {
-    src: 'https://picsum.photos/id/456/1300/350',
+    src: '/avenger.png',
     altText: 'Slide 2',
     caption: 'Slide 2',
     key: 2,
   },
   {
-    src: 'https://picsum.photos/id/678/1300/350',
+    src: '/jungle.png',
     altText: 'Slide 3',
     caption: 'Slide 3',
     key: 3,
@@ -57,7 +57,7 @@ function Example(args) {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} />
+        <img className="d-block w-100" src={item.src} alt={item.altText} />
         <CarouselCaption
           captionText={item.caption}
           captionHeader={item.caption}
