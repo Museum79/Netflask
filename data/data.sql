@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS "genres"(
 
 
 CREATE TABLE IF NOT EXISTS "videos_genres"(
-    "movie_id" INT NOT NULL,
+    "video_id" INT NOT NULL,
     "genre_id" INT NOT NULL,
     FOREIGN KEY (video_id) REFERENCES videos (id) ON DELETE RESTRICT ON UPDATE CASCADE,
     FOREIGN KEY (genre_id) REFERENCES genres (id) ON DELETE RESTRICT ON UPDATE CASCADE,
