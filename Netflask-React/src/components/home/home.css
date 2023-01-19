@@ -1,7 +1,4 @@
-body{
-    height: 100vh;
-    background-color: black;
-}
+
 
 /* LOGO N */
 
@@ -10,6 +7,8 @@ body{
   height: 30vh;
   background-color: #b1060f;
   position: relative;
+  margin-left: 45%;
+  margin-top: 10%;
 }
   
 .netflix-stick:before{
@@ -55,64 +54,36 @@ body{
 
 /* END LOGO N */
 
-.btnSignUp{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.btns{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.btn{
     width: 20vw;
-    height: 50px;
+    margin: auto;
     margin-top: 24px;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 500;
     border-radius: 5px;
     border: none;
     color: #ffffff;
     background-color: #E50913;
+    transition-duration: 400ms;
 }
 
-.btnSignUp:hover{
+.btn:hover{
     left: 15%;
     width: 20vw;
-    height: 50px;
     margin-top: 24px;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 500;
     border-radius: 5px;
     border: none;
     color: #E50913;
     background-color: #FFFF;
+    transition-duration: 400ms;
 }
-
-.btnLogin{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 20vw;
-    height: 50px;
-    margin-top: 24px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 700;
-    border-radius: 5px;
-    border: none;
-    color: #ffffff;
-    background-color: #E50913;
-}
-
-.btnLogin:hover{
-    left: 15%;
-    width: 20vw;
-    height: 50px;
-    margin-top: 24px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 700;
-    border-radius: 5px;
-    border: none;
-    color: #E50913;
-    background-color: #FFFF;
-}
-
-

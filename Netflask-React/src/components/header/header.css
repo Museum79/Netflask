@@ -4,6 +4,24 @@
     padding-bottom: 8px;
 }
 
+.toggleDrop{
+    text-decoration: none;
+    color:white;
+}
+.toggleDrop:hover{
+    color: #E21221;
+}
+.toggleDrop:focus{
+    color: #E21221;
+}
+
+.dropItem:hover{
+    background-color: #E21221;
+    color: white;
+}
+
+
+
 .navLink{
     text-decoration: none;
     color: white;

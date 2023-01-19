@@ -1,0 +1,38 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>576</x><y>168</y><w>176</w><h>72</h></coordinates><panel_attributes>users
+--
+idUser       Integer PK
+email         String (50)
+password  String (50)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>352</x><y>72</y><w>168</w><h>112</h></coordinates><panel_attributes>movies
+--
+idMovie      Integer PK
+Title             String  (50)
+Date            Date
+Descriptif    String (400)
+Picture        String
+Video          String
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>72</y><w>168</w><h>112</h></coordinates><panel_attributes>series
+--
+idSerie      Integer PK
+Title             String  (50)
+Date            Date
+Descriptif    String (400)
+Picture        String
+Video          String
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>232</x><y>416</y><w>168</w><h>56</h></coordinates><panel_attributes>genres
+--
+idGenre        Integer PK
+GenreName  String  (50)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>176</y><w>40</w><h>112</h></coordinates><panel_attributes>lt=&lt;-
+m1=1..n</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>272</y><w>168</w><h>56</h></coordinates><panel_attributes>genres_series
+--
+idSerie            Integer FK
+idGenre          Integer FK
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>352</x><y>272</y><w>168</w><h>56</h></coordinates><panel_attributes>genres_movies
+--
+idMovie  Integer FK
+idGenre  Integer FK</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>424</x><y>176</y><w>40</w><h>112</h></coordinates><panel_attributes>lt=&lt;-
+m1=1..n</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>392</x><y>320</y><w>80</w><h>144</h></coordinates><panel_attributes>lt=&lt;-
+m1=1..n</panel_attributes><additional_attributes>60;10;60;160;10;160</additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>320</y><w>56</w><h>144</h></coordinates><panel_attributes>lt=&lt;-
+m1=1..n</panel_attributes><additional_attributes>10;10;10;160;50;160</additional_attributes></element></diagram>
