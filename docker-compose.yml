@@ -1,0 +1,40 @@
+#utilisation de version docker-compose
+version: "3"
+
+
+#choix des services à utiliser
+services:
+#nom du service utilisé ici db(database)
+  db:
+  #choix de l'image à utiliser
+    image: postgres
+    container_name: "postgres_netflaskk"
+  #ici on donne l'instruction de toujours redémarrer le service si ça crash  
+    restart: always
+  #ici on choisit un port pour mapper sur le port d'origine de postgres qui est 5432  
+    ports:
+      - 5001:5432
+  #ici on exporte notre ficher sql dans le container docker pour qu'il soit utilisé dans la BDD     
+    volumes:
+      - ./data/data.sql:/docker-entrypoint-initdb.d/import.sql
+
+  #ici on donne les identifiants qu'on souhaite pour notre BDD 
+    environment:
+      POSTGRES_PASSWORD: netflask
+      POSTGRES_USER: netflask
+      POSTGRES_DB: netflask
+
+#ici on integre le service adminer pour pouvoir avoir une interface pour gérer notre BDD
+  adminer:
+  #image de adminer
+    image: adminer
+    container_name: "pg_adminer_netflaskk"
+    restart: always
+
+    #ici on indique que le service adminer dépend du service db pour être sur de bien démarrer le service db avant le service adminer
+    depends_on:
+      - db
+    #la on choisit le port à mapper pour pouvoir acceder à notre service adminer avec http://localhost:9000  
+    ports:
+      - 9000:8080      
+
