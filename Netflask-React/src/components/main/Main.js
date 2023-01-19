@@ -18,9 +18,6 @@ function Main() {
     () => {
       dispatch(saveFilms())
       dispatch(saveCategories());
-
-      
-      
     },
     [],
   );
@@ -28,17 +25,16 @@ function Main() {
 
   return (
     <div>
-    <Header/>
-    <Example/>
+      <Header />
+      <Example />
 
       {
-
         categories &&
-        categories.map((category) => ( 
-         
-           <MoviesBrowser  key={category.id} {...category}  movies={movies.filter(movie => movie.category_id === category.id)} />
+        categories.map((category) => (
+
+          <MoviesBrowser key={category.id} {...category} movies={movies.filter(movie => movie.category_id === category.id)} />
         ))
-       
+
       }
 
 
