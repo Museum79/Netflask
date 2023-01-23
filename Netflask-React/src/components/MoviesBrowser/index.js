@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-
-import { useHorizontalScroll } from './HorizontalScroll';
+import { useSelector } from 'react-redux';
 
 import Movie from './Movie';
 
@@ -9,28 +8,35 @@ import './moviesBrowser.css'
 
 
 
-function MoviesBrowser(category) {
+function MoviesBrowser(genre) {
 
-    const scrollRef = useHorizontalScroll(category.movies.length);
 
-    
+    const selected = useSelector((state) => state.movies.categorySelected);
+
 
 
     return (
         <div className='my-5'>
-       <h3 className=' font-weight-bold text-white mx-5'>{category.name}</h3>
+       <h3 className=' font-weight-bold text-white mx-5'>{genre.name}</h3>
 
      
 
 
-       <div  ref={scrollRef} style={{ overflowX: "hidden" }}  
+       <div    
        className='container d-flex min-vw-100 p-0' >
 
        {
 
+        selected !== "" ?
+
+            genre.videos.filter((video) => video.category === selected).map((video) =>
+            <Movie key={video.title} {...video} />
+            )
+
+            :
         
-            category.movies.map((movie) => 
-               <Movie key={movie.title} {...movie} />
+            genre.videos.map((video) => 
+               <Movie key={video.title} {...video} />
            ) 
        }
 
@@ -47,9 +53,9 @@ function MoviesBrowser(category) {
 
 
 MoviesBrowser.propTypes = {
-    category: PropTypes.shape({
+    genre: PropTypes.shape({
         name: PropTypes.string.isRequired,
-        movies: PropTypes.array.isRequired
+        videos: PropTypes.array.isRequired
     }),
     
     

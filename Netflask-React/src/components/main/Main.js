@@ -4,22 +4,24 @@ import Example from '../caroussel/Caroussel'
 import '../main/main.css'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { saveCategories, saveFilms } from '../../actions/moviesActions';
+import { fetchGenres } from '../../actions/moviesActions';
 import MoviesBrowser from '../MoviesBrowser';
 
 function Main() {
 
-  const movies = useSelector((state) => state.movies.movies);
-  const categories = useSelector((state) => state.movies.categories);
+  const genres = useSelector((state) => state.movies.genresAndVideos);
+  const genre = useSelector((state) => state.movies.selectedGenre);
+
+  
 
   const dispatch = useDispatch();
 
   useEffect(
     () => {
-      dispatch(saveFilms())
-      dispatch(saveCategories());
+      dispatch(fetchGenres());
+      
     },
-    [],
+    [dispatch],
   );
 
 
@@ -29,11 +31,24 @@ function Main() {
       <Example />
 
       {
-        categories &&
-        categories.map((category) => (
 
-          <MoviesBrowser key={category.id} {...category} movies={movies.filter(movie => movie.category_id === category.id)} />
-        ))
+        JSON.stringify(genre) !== "{}" ? 
+
+
+        <MoviesBrowser {...genre}  />
+
+        : 
+
+        genres ?
+        
+        genres.map((genre) => (
+
+          <MoviesBrowser key={genre.id} {...genre}  />
+        )) 
+
+        : 
+
+        <div>error </div>
 
       }
 

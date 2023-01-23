@@ -34,8 +34,8 @@ CREATE TABLE IF NOT EXISTS "genres"(
 CREATE TABLE IF NOT EXISTS "videos_genres"(
     "video_id" INT NOT NULL,
     "genre_id" INT NOT NULL,
-    FOREIGN KEY (video_id) REFERENCES videos (id) ON DELETE RESTRICT ON UPDATE CASCADE,
-    FOREIGN KEY (genre_id) REFERENCES genres (id) ON DELETE RESTRICT ON UPDATE CASCADE,
+    FOREIGN KEY (video_id) REFERENCES videos (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (genre_id) REFERENCES genres (id) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (video_id, genre_id)
 );
 
@@ -125,4 +125,5 @@ VALUES('1', '1'),
 ('26', '1'),
 ('26', '6'),
 ('27', '1');
+
 
