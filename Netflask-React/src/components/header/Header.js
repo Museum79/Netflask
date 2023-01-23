@@ -1,76 +1,62 @@
 import React from 'react'
 import './header.css'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { NavItem, NavLink, Nav, Input, DropdownMenu, DropdownToggle, DropdownItem, UncontrolledDropdown } from 'reactstrap'
+import { fetchOneGenre, unFiltreGenre, filterCategory } from '../../actions/moviesActions';
 
 
 function Header() {
+
+    const genres = useSelector((state) => state.movies.genresAndVideos);
+    const dispatch = useDispatch();
+
+    const filterGenre = (id) => {
+        dispatch(fetchOneGenre(id))
+    }
+
+    const unfilter = () => {
+        dispatch(unFiltreGenre());
+    }
+
+    const filteredCategory = (value) => {
+        dispatch(filterCategory(value))
+    }
 
 
     return (
         <Nav
             fill justified className='header'
         >
-            <NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret className='toggleDrop'>
-                        Films
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                        <DropdownItem className='dropItem'>Aventure</DropdownItem>
-                        <DropdownItem className='dropItem'>Drame</DropdownItem>
-                        <DropdownItem className='dropItem'>Comédie</DropdownItem>
-                        <DropdownItem className='dropItem'>Fiction</DropdownItem>
-                        <DropdownItem className='dropItem'>Policier</DropdownItem>
-                        <DropdownItem className='dropItem'>Science fiction</DropdownItem>
-                        <DropdownItem className='dropItem'>Fantastique</DropdownItem>
-                        <DropdownItem className='dropItem'>Horreur</DropdownItem>
-                        <DropdownItem className='dropItem'>Western</DropdownItem>
-                        <DropdownItem className='dropItem'>Animation</DropdownItem>
-                        <DropdownItem className='dropItem'>Action</DropdownItem>
-                        <DropdownItem className='dropItem'>Documentaire</DropdownItem>
-                    </DropdownMenu>
-                </UncontrolledDropdown>
+             <NavItem >
+                <NavLink onClick={() => filteredCategory("movie")}  className='navLink'>
+                    Films
+                </NavLink>
             </NavItem>
-            <NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret className='toggleDrop'>
-                        Séries
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                    <DropdownItem className='dropItem'>Aventure</DropdownItem>
-                        <DropdownItem className='dropItem'>Drame</DropdownItem>
-                        <DropdownItem className='dropItem'>Comédie</DropdownItem>
-                        <DropdownItem className='dropItem'>Fiction</DropdownItem>
-                        <DropdownItem className='dropItem'>Policier</DropdownItem>
-                        <DropdownItem className='dropItem'>Science fiction</DropdownItem>
-                        <DropdownItem className='dropItem'>Fantastique</DropdownItem>
-                        <DropdownItem className='dropItem'>Horreur</DropdownItem>
-                        <DropdownItem className='dropItem'>Western</DropdownItem>
-                        <DropdownItem className='dropItem'>Animation</DropdownItem>
-                        <DropdownItem className='dropItem'>Action</DropdownItem>
-                        <DropdownItem className='dropItem'>Documentaire</DropdownItem>
-                    </DropdownMenu>
-                </UncontrolledDropdown>
+            <NavItem  >
+                <NavLink onClick={() => filteredCategory("serie")} className='navLink'>
+                   Séries
+                </NavLink>
+            </NavItem>
+            <NavItem  >
+                <NavLink onClick={() => filteredCategory("")} className='navLink'>
+                   Toute les Videos
+                </NavLink>
             </NavItem>
             <NavItem>
                 <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret className='toggleDrop'>
                         Catégories
                     </DropdownToggle>
-                    <DropdownMenu right>
-                    <DropdownItem className='dropItem'>Aventure</DropdownItem>
-                        <DropdownItem className='dropItem'>Drame</DropdownItem>
-                        <DropdownItem className='dropItem'>Comédie</DropdownItem>
-                        <DropdownItem className='dropItem'>Fiction</DropdownItem>
-                        <DropdownItem className='dropItem'>Policier</DropdownItem>
-                        <DropdownItem className='dropItem'>Science fiction</DropdownItem>
-                        <DropdownItem className='dropItem'>Fantastique</DropdownItem>
-                        <DropdownItem className='dropItem'>Horreur</DropdownItem>
-                        <DropdownItem className='dropItem'>Western</DropdownItem>
-                        <DropdownItem className='dropItem'>Animation</DropdownItem>
-                        <DropdownItem className='dropItem'>Action</DropdownItem>
-                        <DropdownItem className='dropItem'>Documentaire</DropdownItem>
+                    <DropdownMenu >
+                    <DropdownItem  onClick={unfilter} className='dropItem'>Toutes les Categories</DropdownItem>
+                            
+                    {
+                                genres.map((genre) => 
+                                <DropdownItem  key={genre.id}  onClick={(e) => filterGenre(e.target.id) }  id={genre.id} className='dropItem'>{genre.name}</DropdownItem>
+                                )
+                            }
+
                     </DropdownMenu>
                 </UncontrolledDropdown>
             </NavItem>
