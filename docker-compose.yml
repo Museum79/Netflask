@@ -1,10 +1,6 @@
 #utilisation de version docker-compose
 version: "3"
-
-
-#choix des services à utiliser
-services:
-#nom du service utilisé ici db(database)
+services:  
   db:
   #choix de l'image à utiliser
     image: postgres
@@ -36,5 +32,5 @@ services:
       - db
     #la on choisit le port à mapper pour pouvoir acceder à notre service adminer avec http://localhost:9000  
     ports:
-      - 9000:8080      
+      - 9001:8080      
 
