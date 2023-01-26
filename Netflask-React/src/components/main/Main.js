@@ -2,16 +2,18 @@ import React from 'react'
 import Header from '../header/Header'
 import Example from '../caroussel/Caroussel'
 import '../main/main.css'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchGenres } from '../../actions/moviesActions';
 import MoviesBrowser from '../MoviesBrowser';
+import AddMovies from '../addMovies/AddMovies';
 
 function Main() {
 
   const genres = useSelector((state) => state.movies.genresAndVideos);
   const genre = useSelector((state) => state.movies.selectedGenre);
 
+const [isOpen, setIsOpen] = useState(false);
   
 
   const dispatch = useDispatch();
@@ -27,7 +29,12 @@ function Main() {
 
   return (
     <div>
-      <Header />
+      <Header setIsOpen={setIsOpen} />
+
+          {
+            isOpen && <AddMovies setIsOpen={setIsOpen} />
+          }
+
       <Example />
 
       {
