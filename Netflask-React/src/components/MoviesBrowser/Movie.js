@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 
-function Movie(movie) {
+function Movie(video) {
 
 
     return (
        
 
 <div className='mx-1' >
-  <img className=" custom-img" src={movie.image} alt={movie.title} />
+  <img className=" custom-img" src={video.picture} alt={video.title} />
   </div>
 
 
@@ -17,9 +17,9 @@ function Movie(movie) {
 
 Movie.propTypes = {
     
-    movie: PropTypes.shape({
+    genre: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired
+        picture: PropTypes.string.isRequired
     })
     
     
