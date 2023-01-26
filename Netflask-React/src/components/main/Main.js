@@ -15,10 +15,13 @@ function Main() {
   const genre = useSelector((state) => state.movies.selectedGenre);
 
   
+<<<<<<< HEAD
 
   const [isOpen, setIsOpen] = useState(false);
 
   console.log(isOpen)
+=======
+>>>>>>> brancheSylvain
 
   const dispatch = useDispatch();
 
@@ -67,3 +70,4 @@ function Main() {
 }
 
 export default Main
+
