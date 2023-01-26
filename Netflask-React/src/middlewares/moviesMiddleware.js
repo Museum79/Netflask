@@ -1,3 +1,5 @@
+
+
 const moviesMiddleware = (store => (next) => (action) => {
 
 switch (action.type) {

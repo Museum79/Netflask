@@ -9,3 +9,4 @@ export const SAVE_CATEGORIES = "SAVE_CATEGORIES"
 export const saveFilms = () => ({ type: SAVE_FILM });
 
 export const saveCategories = () => ({ type: SAVE_CATEGORIES });
+
