@@ -1,4 +1,4 @@
-import { FILTER_CATEGORY, SAVE_GENRES, SAVE_ONE_GENRE, UNFLITRE_GENRE } from "../actions/moviesActions";
+import { FILTER_CATEGORY, SAVE_GENRES, SAVE_ONE_GENRE, UNFILTRE_GENRE } from "../actions/moviesActions";
 
 
 
@@ -37,7 +37,7 @@ case FILTER_CATEGORY:
     };
 
 
-case UNFLITRE_GENRE:
+case UNFILTRE_GENRE:
     return{
         ...state,
         selectedGenre: {}
