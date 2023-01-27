@@ -1,3 +1,7 @@
+
+
+
+
 export const SAVE_GENRES = "SAVE_GENRES" ;
 
 export const FETCH_GENRES = "FETCH_GENRES";
@@ -8,7 +12,7 @@ export const SAVE_ONE_GENRE = "SAVE_ONE_GENRE";
 
 export const FILTER_CATEGORY = "FILTER_CATEGORY";
 
-export const UNFLITRE_GENRE = "UNFILTRE_CATEGORY";
+export const UNFILTRE_GENRE = "UNFILTRE_CATEGORY";
 
 
 
@@ -45,4 +49,4 @@ export const filterCategory = (value) => (
     }
 )
 
-export const unFiltreGenre = () => ({ type: UNFLITRE_GENRE });
+export const unFiltreGenre = () => ({ type: UNFILTRE_GENRE });

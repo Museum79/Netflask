@@ -6,7 +6,10 @@ import { NavItem, NavLink, Nav, Input, DropdownMenu, DropdownToggle, DropdownIte
 import { fetchOneGenre, unFiltreGenre, filterCategory } from '../../actions/moviesActions';
 
 
-function Header() {
+
+function Header({setIsOpen}) {
+
+
 
     const genres = useSelector((state) => state.movies.genresAndVideos);
     const dispatch = useDispatch();
@@ -61,13 +64,12 @@ function Header() {
                 </UncontrolledDropdown>
             </NavItem>
             <NavItem>
-                <NavLink className='navLink'>
+                <NavLink className='navLink' onClick={() => setIsOpen(true)}>
                     Ajouter film
                 </NavLink>
             </NavItem>
             <NavItem>
-                <NavLink className='navLink'>
-                    Supprimer film
+                <NavLink className='navLink' >Supprimer film
                 </NavLink>
             </NavItem>
 
@@ -80,3 +82,4 @@ function Header() {
 }
 
 export default Header
+

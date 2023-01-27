@@ -72,8 +72,6 @@ public class VideoController {
 
                 return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
             }
-
-
         }
 
 
@@ -96,8 +94,6 @@ public class VideoController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 
         }
-
-
     }
 
 

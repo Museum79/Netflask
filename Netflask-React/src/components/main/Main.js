@@ -8,13 +8,17 @@ import { fetchGenres } from '../../actions/moviesActions';
 import MoviesBrowser from '../MoviesBrowser';
 import AddMovies from '../addMovies/AddMovies';
 
+
 function Main() {
 
   const genres = useSelector((state) => state.movies.genresAndVideos);
   const genre = useSelector((state) => state.movies.selectedGenre);
 
-const [isOpen, setIsOpen] = useState(false);
   
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  console.log(isOpen)
 
   const dispatch = useDispatch();
 
@@ -29,11 +33,10 @@ const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
-      <Header setIsOpen={setIsOpen} />
-
-          {
-            isOpen && <AddMovies setIsOpen={setIsOpen} />
-          }
+      <Header setIsOpen={setIsOpen}/>
+      {
+        isOpen && <AddMovies setIsOpen={setIsOpen}/>
+      }
 
       <Example />
 
@@ -59,9 +62,9 @@ const [isOpen, setIsOpen] = useState(false);
 
       }
 
-
     </div>
   )
 }
 
 export default Main
+

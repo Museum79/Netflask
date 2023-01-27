@@ -36,7 +36,7 @@ public class Video {
                     "id" ),
             inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "id"))
     @JsonBackReference
-    private List<Genre> genres;
+    private List <Genre> genres;
 
 
 
