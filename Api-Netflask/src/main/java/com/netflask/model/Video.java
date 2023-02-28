@@ -32,12 +32,9 @@ public class Video {
 
     @ManyToMany
     @JoinTable(name = "videos_genres",
-            joinColumns = @JoinColumn(name = "video_id", referencedColumnName =
-                    "id" ),
+            joinColumns = @JoinColumn(name = "video_id", referencedColumnName = "id" ),
             inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "id"))
     @JsonBackReference
     private List <Genre> genres;
-
-
 
 }

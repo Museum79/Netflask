@@ -52,9 +52,7 @@ public class VideoController {
         } catch (Exception e) {
 
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-
         }
-
     }
 
 
@@ -84,6 +82,7 @@ public class VideoController {
             Optional<Video> video = videoService.getVideo(id);
 
             if(video.isPresent()) {
+                videoService.deleteVideo(id);
                 return new ResponseEntity<>(video, HttpStatus.CREATED);
             }
 
@@ -157,10 +156,6 @@ public class VideoController {
 
         }
     }
-
-
-
-
 }
 
 
