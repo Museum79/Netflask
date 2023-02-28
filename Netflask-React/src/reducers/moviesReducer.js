@@ -1,20 +1,17 @@
-import { FILTER_CATEGORY, SAVE_GENRES, SAVE_ONE_GENRE, UNFLITRE_GENRE } from "../actions/moviesActions";
-
-
+import { FILTER_CATEGORY, SAVE_GENRES, SAVE_ONE_GENRE, UNFILTRE_GENRE, SAVE_VIDEOS } from "../actions/moviesActions";
 
 export const initialState = {
     genresAndVideos: [],
     selectedGenre: {},
-    categorySelected: ""
-
+    categorySelected: "",
+    videos:[]
 }
-
 
 export const moviesReducer = (state = initialState, action = {}) => {
 
 switch(action.type) {
     
-// ici c'est le reducer movies que l'on va utiliser par exemple pour charger toutes les films dans le state,
+// ici c'est le reducer movies que l'on va utiliser par exemple pour charger tous les films dans le state,
 // si l'action qu'on appelle est SaveFilms, on va modifier le state de movies qui est initialement un tableau vide pour retourner tous les films
 
 case SAVE_GENRES: 
@@ -23,7 +20,6 @@ case SAVE_GENRES:
         genresAndVideos: action.genreWithVideos
     };
 
-  
  case SAVE_ONE_GENRE:
     return{
         ...state,
@@ -36,20 +32,19 @@ case FILTER_CATEGORY:
         categorySelected: action.value
     };
 
-
-case UNFLITRE_GENRE:
+case UNFILTRE_GENRE:
     return{
         ...state,
         selectedGenre: {}
     }    
 
-
-
-
+    case SAVE_VIDEOS: 
+    return {
+        ...state,
+        videos: action.videos
+    };
 
     default: 
     return state;
 }
-
-
 };

@@ -1,0 +1,67 @@
+.back{
+    max-width: 900px;
+    width: 100%;
+    margin-left: 25%;
+    background: rgba(255, 255, 255, 0.852);
+    padding: 25px 30px;
+    border-radius: 5px;
+    z-index: 999;
+    position: absolute;
+}
+
+.inputDeleteSearch{
+    width: 100%;
+}
+
+ul{
+    color: white;
+    border-radius: 0 0 8px 8px;
+    background-color: rgba(0, 0, 0, 0.92);
+}
+
+.listMovies{
+    list-style: none;
+    font-size: 1.5rem;
+
+}
+
+.listMovies:hover{
+    list-style: none;
+    color: #E21221;
+    font-size: 1.5rem;
+}
+
+.selected{
+    list-style: none;
+    color: #E21221;
+    font-size: 1.5rem;
+}
+
+.deleteButton {
+    width: 30%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    display: block;
+    margin: auto;
+    height: 45px;
+    margin-top: 30px;
+    transition-duration: 300ms;
+    background-color: #E21221;
+}
+
+.deleteButton:hover {
+    transition-duration: 300ms;
+    width: 50%;
+    background-color: #E21221;
+}
+
+.deleteButton:active {
+    /* -webkit-box-shadow: inset 5px 5px 15px 5px #000000;  */
+    box-shadow: inset 5px 5px 15px 5px #0000004f;
+    background-color: #E21221;
+}

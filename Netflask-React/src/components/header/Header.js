@@ -7,8 +7,7 @@ import { fetchOneGenre, unFiltreGenre, filterCategory } from '../../actions/movi
 
 
 
-function Header({setIsOpen}) {
-
+function Header({setIsOpen, deleteOpenMovie}) {
 
 
     const genres = useSelector((state) => state.movies.genresAndVideos);
@@ -28,9 +27,7 @@ function Header({setIsOpen}) {
 
 
     return (
-        <Nav
-            fill justified className='header'
-        >
+        <Nav fill justified className='header'>
              <NavItem >
                 <NavLink onClick={() => filteredCategory("movie")}  className='navLink'>
                     Films
@@ -55,27 +52,26 @@ function Header({setIsOpen}) {
                     <DropdownItem  onClick={unfilter} className='dropItem'>Toutes les Categories</DropdownItem>
                             
                     {
-                                genres.map((genre) => 
-                                <DropdownItem  key={genre.id}  onClick={(e) => filterGenre(e.target.id) }  id={genre.id} className='dropItem'>{genre.name}</DropdownItem>
-                                )
-                            }
+                        genres.map((genre) => 
+                        <DropdownItem  key={genre.id}  onClick={(e) => filterGenre(e.target.id) }  id={genre.id} className='dropItem'>{genre.name}</DropdownItem>
+                    )}
 
                     </DropdownMenu>
                 </UncontrolledDropdown>
             </NavItem>
             <NavItem>
-                <NavLink className='navLink' onClick={() => setIsOpen(true)}>
+                <NavLink className='navLink' onClick={() => {setIsOpen(true); deleteOpenMovie(false)}}>
                     Ajouter film
                 </NavLink>
             </NavItem>
             <NavItem>
-                <NavLink className='navLink' >Supprimer film
+                <NavLink className='navLink' onClick={() => {deleteOpenMovie(true); setIsOpen(false)}}>
+                    Supprimer film
                 </NavLink>
             </NavItem>
 
             <div>
-                <Input className='inputSearch' placeholder='rechercher'
-                />
+                <Input className='inputSearch' placeholder='rechercher'/>
             </div>
         </Nav>
     )

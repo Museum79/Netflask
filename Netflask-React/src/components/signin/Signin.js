@@ -27,7 +27,7 @@ const Signin = () => {
                     <input type="email" className="form-control" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Entrer votre adresse mail" required></input>
                     <input type="text" className="form-control" value={password} onChange={(event) => setPassword(event.target.value)}  placeholder="Saisissez un mot de passe" required></input>
                     <button type="submit" className="form-control" id='btn'>ENVOYER</button>
-                    <a href='#' className='forgetMdp'>Récupérer votre mot de passe</a>
+                    <a href='https://google.fr' className='forgetMdp'>Récupérer votre mot de passe</a>
                     <Link className='linkSignIn' to='/signup'>Pas encore inscrit? cliquez-ici!</Link>
                 </div>
             </div>

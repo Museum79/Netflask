@@ -1,71 +1,69 @@
 import React from 'react'
 import Header from '../header/Header'
-import AddMovies from '../addMovies/AddMovies'
 import Example from '../caroussel/Caroussel'
-import '../main/main.css'
+import MoviesBrowser from '../MoviesBrowser';
+import AddMovies from '../addMovies/AddMovies'
+import DeleteMovies from '../deleteMovies/DeleteMovies';
+import { fetchGenres } from '../../actions/moviesActions';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchGenres } from '../../actions/moviesActions';
-import MoviesBrowser from '../MoviesBrowser';
+import '../main/main.css'
 
 
 function Main() {
 
+  const [isOpen, setIsOpen] = useState(false)
+  const [deleteOpenMovie, setDeleteOpenMovie] = useState(false)
   const genres = useSelector((state) => state.movies.genresAndVideos);
   const genre = useSelector((state) => state.movies.selectedGenre);
 
-  
-<<<<<<< HEAD
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  console.log(isOpen)
-=======
->>>>>>> brancheSylvain
 
   const dispatch = useDispatch();
 
   useEffect(
     () => {
       dispatch(fetchGenres());
-      
     },
     [dispatch],
   );
 
-
+ 
   return (
     <div>
-      <Header setIsOpen={setIsOpen}/>
-      {
-        isOpen && <AddMovies setIsOpen={setIsOpen}/>
-      }
+      <Header setIsOpen={setIsOpen} deleteOpenMovie={setDeleteOpenMovie} />
+
+      {isOpen && <AddMovies setIsOpen={setIsOpen} />}
+
+      {deleteOpenMovie && <DeleteMovies deleteOpenMovie={setDeleteOpenMovie} />}
 
       <Example />
 
       {
+        JSON.stringify(genre) !== "{}" ?
+            
 
-        JSON.stringify(genre) !== "{}" ? 
 
+          <MoviesBrowser {...genre} />
+          :
+          genres  ?
 
-        <MoviesBrowser {...genre}  />
+            genres.map((genre) => (
+                
+              <MoviesBrowser key={genre.id} {...genre} />
+              
+            ))
 
-        : 
+            
 
-        genres ?
-        
-        genres.map((genre) => (
+            :
 
-          <MoviesBrowser key={genre.id} {...genre}  />
-        )) 
-
-        : 
-
-        <div>error </div>
-
+            <div>error</div>
+            
       }
 
     </div>
+
+    
   )
 }
 
